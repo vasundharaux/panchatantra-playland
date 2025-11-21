@@ -1,54 +1,94 @@
-/* --- Base Body Style --- */
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: linear-gradient(135deg, #FFF5E1 0%, #FFE9D6 25%, #FDE0FF 60%, #FFE4F1 100%);
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
+/* --- Kingdoms grid (Emergent-style colorful cards) --- */
+
+.kingdoms-page {
+  margin-top: 0.5rem;
 }
 
-/* --- Floating Glow Orbs (Firefly Style) --- */
-.glow {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  filter: blur(80px);
-  opacity: 0.45;
-  border-radius: 50%;
-  animation: float 12s ease-in-out infinite;
-  pointer-events: none;
+.kingdoms-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.glow-1 {
-  background: #FFD27F;
-  top: 5%;
-  left: 10%;
-  animation-delay: 0s;
+.kingdom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
 }
 
-.glow-2 {
-  background: #FF7FD1;
-  top: 40%;
-  left: 70%;
-  animation-delay: 2s;
+/* Base card */
+.kingdom-card {
+  border-radius: 24px;
+  padding: 1.4rem 1.6rem;
+  text-decoration: none;
+  color: #2b1710;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: stretch;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 }
 
-.glow-3 {
-  background: #8CCFFF;
-  top: 75%;
-  left: 30%;
-  animation-delay: 4s;
+.kingdom-card-main h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
 }
 
-@keyframes float {
-  0%   { transform: translateY(0px) translateX(0px); }
-  50%  { transform: translateY(-40px) translateX(25px); }
-  100% { transform: translateY(0px) translateX(0px); }
+.kingdom-tagline {
+  margin: 0 0 0.9rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
-/* --- Page Content Layer --- */
-#page-wrapper {
-  position: relative;
-  z-index: 10;
+.kingdom-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.kingdom-arrow {
+  font-size: 1.2rem;
+}
+
+/* Hover animation */
+.kingdom-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 38px rgba(0, 0, 0, 0.18);
+  filter: brightness(1.05);
+}
+
+/* Colors for each kingdom */
+
+.kingdom-card--coral {
+  background: radial-gradient(circle at top left, #ffb5a7 0%, #ff6f61 45%, #ff8fa3 100%);
+}
+
+.kingdom-card--mint {
+  background: radial-gradient(circle at top left, #b5f2e6 0%, #37c6b5 45%, #7ee9d9 100%);
+}
+
+.kingdom-card--teal {
+  background: radial-gradient(circle at top left, #9be7ff 0%, #2c96ff 40%, #77d0ff 100%);
+}
+
+.kingdom-card--gold {
+  background: radial-gradient(circle at top left, #ffe29f 0%, #f9a826 45%, #ffcc70 100%);
+}
+
+.kingdom-card--purple {
+  background: radial-gradient(circle at top left, #cbb2ff 0%, #8e63ff 45%, #b998ff 100%);
+}
+
+/* Mobile tweak */
+@media (max-width: 640px) {
+  .kingdom-grid {
+    gap: 1.1rem;
+  }
+
+  .kingdom-card {
+    padding: 1.2rem 1.3rem;
+  }
 }
