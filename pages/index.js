@@ -1,0 +1,20 @@
+panchatantra-playland/
+  package.json
+  next.config.mjs
+  public/
+    favicon.ico   (optional)
+  pages/
+    _app.js
+    index.js
+    kingdoms/
+      index.js
+      [kingdom].js
+    stories/
+      [storyId].js
+  components/
+    Layout.js
+    Header.js
+    NavBar.js
+    StoryCard.js
+  styles/
+    globals.css
