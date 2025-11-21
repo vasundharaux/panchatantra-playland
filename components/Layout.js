@@ -3,13 +3,10 @@ import NavBar from "./NavBar";
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className="app-root">
       <Header />
       <NavBar />
-
-      <main style={{ maxWidth: "960px", margin: "0 auto", padding: "1rem" }}>
-        {children}
-      </main>
+      <main className="app-shell">{children}</main>
     </div>
   );
 }
