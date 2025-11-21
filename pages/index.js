@@ -1,20 +1,12 @@
-panchatantra-playland/
-  package.json
-  next.config.mjs
-  public/
-    favicon.ico   (optional)
-  pages/
-    _app.js
-    index.js
-    kingdoms/
-      index.js
-      [kingdom].js
-    stories/
-      [storyId].js
-  components/
-    Layout.js
-    Header.js
-    NavBar.js
-    StoryCard.js
-  styles/
-    globals.css
+// pages/index.js
+export default function HomePage() {
+  return (
+    <div style={{ padding: "1rem" }}>
+      <h2>Welcome to Panchatantra PlayLand</h2>
+      <p>
+        Choose a kingdom, pick a story, and talk about the moral together with
+        your kid.
+      </p>
+    </div>
+  );
+}
