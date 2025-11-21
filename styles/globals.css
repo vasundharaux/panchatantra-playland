@@ -1,287 +1,54 @@
-/* styles/globals.css */
-
-/* Reset-ish */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
+/* --- Base Body Style --- */
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
-  background-color: #fff7ea;
-  background-image:
-    radial-gradient(circle at 0% 0%, #ffe4c1 0, transparent 55%),
-    radial-gradient(circle at 100% 0%, #ffd6e9 0, transparent 55%),
-    radial-gradient(circle at 100% 100%, #dff3ff 0, transparent 55%);
-  color: #2f1705;
-}
-
-/* App shell */
-
-.app-root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #FFF5E1 0%, #FFE9D6 25%, #FDE0FF 60%, #FFE4F1 100%);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.app-shell {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 3rem;
+/* --- Floating Glow Orbs (Firefly Style) --- */
+.glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  filter: blur(80px);
+  opacity: 0.45;
+  border-radius: 50%;
+  animation: float 12s ease-in-out infinite;
+  pointer-events: none;
 }
 
-/* Header – warm animated gradient like Firefly */
-
-.app-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: linear-gradient(120deg, #f97316, #facc15, #fb923c, #f97316);
-  background-size: 200% 200%;
-  animation: headerGlow 16s ease-in-out infinite;
-  color: #ffffff;
-  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.25);
+.glow-1 {
+  background: #FFD27F;
+  top: 5%;
+  left: 10%;
+  animation-delay: 0s;
 }
 
-.app-header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem 1.25rem;
+.glow-2 {
+  background: #FF7FD1;
+  top: 40%;
+  left: 70%;
+  animation-delay: 2s;
 }
 
-.app-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-  letter-spacing: 0.03em;
+.glow-3 {
+  background: #8CCFFF;
+  top: 75%;
+  left: 30%;
+  animation-delay: 4s;
 }
 
-.app-header p {
-  margin: 0.25rem 0 0;
-  font-size: 0.95rem;
-  opacity: 0.96;
+@keyframes float {
+  0%   { transform: translateY(0px) translateX(0px); }
+  50%  { transform: translateY(-40px) translateX(25px); }
+  100% { transform: translateY(0px) translateX(0px); }
 }
 
-/* Navigation pills */
-
-.app-nav {
-  background: rgba(255, 248, 235, 0.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #f3d5a5;
-}
-
-.app-nav-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0.55rem 1.5rem 0.75rem;
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.nav-pill {
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid #f2bf72;
-  background: #ffffff;
-  text-decoration: none;
-  color: #7a4a00;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    background-color 0.18s ease,
-    border-color 0.18s ease;
-}
-
-.nav-pill:hover {
-  transform: translateY(-1px) scale(1.04);
-  background-color: #fff7df;
-  border-color: #f7b14b;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* Generic page layout */
-
-.page {
-  animation: fadeInUp 0.45s ease-out;
-}
-
-.page-title {
-  font-size: 1.4rem;
-  margin: 0 0 0.35rem;
-}
-
-.page-subtitle {
-  margin: 0 0 1.25rem;
-  max-width: 520px;
-  color: #6b4424;
-  font-size: 0.95rem;
-}
-
-.section-title {
-  margin-top: 1rem;
-  margin-bottom: 0.6rem;
-  font-size: 1.05rem;
-}
-
-/* Story grid + card styling */
-
-.story-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.2rem;
-}
-
-.story-card {
-  border-radius: 18px;
-  padding: 1.1rem 1.3rem 1rem;
-  background: #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  opacity: 0;
-  transform: translateY(14px);
-  animation: floatIn 0.5s ease-out forwards;
-}
-
-.story-card:nth-child(2) {
-  animation-delay: 0.06s;
-}
-
-.story-card:nth-child(3) {
-  animation-delay: 0.12s;
-}
-
-.story-card:nth-child(4) {
-  animation-delay: 0.18s;
-}
-
-.story-kingdom {
-  font-size: 0.8rem;
-  color: #8b6b39;
-  margin: 0;
-}
-
-.story-title {
-  margin: 0.15rem 0 0.35rem;
-  font-size: 1.02rem;
-}
-
-.story-teaser {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #4a2d16;
-}
-
-.story-meta-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  color: #8b6b39;
-}
-
-.story-cta {
-  align-self: flex-start;
-  margin-top: 0.45rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid #f0b653;
-  background: #fff7e0;
-  text-decoration: none;
-  font-size: 0.85rem;
-  color: #7a4a00;
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    background-color 0.18s ease;
-}
-
-.story-cta:hover {
-  transform: translateY(-1px);
-  background: #ffe6b9;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-
-/* Story detail page */
-
-.story-detail {
-  max-width: 720px;
-}
-
-.story-detail-header {
-  margin-bottom: 0.6rem;
-}
-
-.story-detail-meta {
-  color: #8b6b39;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-}
-
-.story-detail p {
-  line-height: 1.6;
-}
-
-.story-moral-box {
-  margin-top: 1.6rem;
-  padding: 1rem;
-  border-radius: 0.9rem;
-  background: #fff7e0;
-  border: 1px solid #f0b653;
-}
-
-/* Animations */
-
-@keyframes headerGlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes floatIn {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Small screens */
-
-@media (max-width: 640px) {
-  .app-header-inner,
-  .app-nav-inner,
-  .app-shell {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .page-title {
-    font-size: 1.3rem;
-  }
+/* --- Page Content Layer --- */
+#page-wrapper {
+  position: relative;
+  z-index: 10;
 }
