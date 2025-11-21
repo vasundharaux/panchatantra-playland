@@ -1,0 +1,224 @@
+:root {
+  --bg: #fff7ec;
+  --primary: #ff7f50;
+  --primary-dark: #e16139;
+  --secondary: #7f6cff;
+  --accent: #ffd76b;
+  --text: #321b1a;
+  --card: #ffffff;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --radius-lg: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #ffe0b2, var(--bg));
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  padding: 2.5rem 1.5rem 1.75rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin: 0 0 0.5rem;
+  color: #ff5c5c;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.hero p {
+  margin: 0 0 1.25rem;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+main {
+  padding: 0 1.5rem 2.5rem;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.book-card {
+  border-radius: 18px;
+  padding: 1rem;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+
+.book-card span.label {
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+.book-card h3 {
+  margin: 0.25rem 0 0.2rem;
+  font-size: 1rem;
+}
+
+.book-card small {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.book-card::after {
+  content: "📖";
+  position: absolute;
+  bottom: -10px;
+  right: 6px;
+  font-size: 2.5rem;
+  opacity: 0.25;
+}
+
+.story-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.story-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.story-item:hover {
+  background: #fff7ea;
+}
+
+.story-item-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.story-item-meta {
+  font-size: 0.7rem;
+  color: #775;
+}
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 20;
+}
+
+.modal-content {
+  background: #fffef8;
+  border-radius: 18px;
+  max-width: 600px;
+  width: 100%;
+  padding: 1.4rem 1.4rem 1.6rem;
+  position: relative;
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  border-radius: 999px;
+  border: none;
+  background: #fce3e3;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin-top: 0.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.modal-content p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.moral-box {
+  margin-top: 1rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  background: #fff1c2;
+  border: 1px dashed #ffb300;
+}
+
+footer {
+  text-align: center;
+  padding: 0.8rem 1rem 1.2rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
