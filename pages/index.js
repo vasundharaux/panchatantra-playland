@@ -14,7 +14,8 @@ const STORIES = [
     id: "monkey-and-crocodile",
     title: "The Monkey and the Crocodile",
     kingdom: "River Kingdom",
-    teaser: "A clever monkey outwits a hungry crocodile using wit and words.",
+    teaser:
+      "A clever monkey outwits a hungry crocodile using wit and words.",
     ageRange: "7–11",
     moralTag: "Trust Carefully",
   },
@@ -22,21 +23,15 @@ const STORIES = [
 
 export default function HomePage() {
   return (
-    <div style={{ padding: "1rem" }}>
-      <h2>Welcome to Panchatantra PlayLand</h2>
-      <p style={{ marginBottom: "1rem" }}>
+    <div className="page">
+      <h2 className="page-title">Welcome to Panchatantra PlayLand</h2>
+      <p className="page-subtitle">
         Choose a kingdom, pick a story, and talk about the moral together.
       </p>
 
-      <h3 style={{ marginBottom: "0.75rem" }}>Featured Stories</h3>
+      <h3 className="section-title">Featured Stories</h3>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: "1rem",
-        }}
-      >
+      <div className="story-grid">
         {STORIES.map((story) => (
           <StoryCard key={story.id} story={story} />
         ))}
